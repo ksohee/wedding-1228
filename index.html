@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이영웅♥김소희 결혼합니다</title>
+    <title>이영웅 x 김소희 결혼합니다</title>
+    <meta property="og:title" content="이영웅 x 김소희">
+    <meta property="og:description" content="12월 28일(일) 오후 12시">
+    <meta property="og:image" content="og-image.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,9 +16,9 @@
         }
 
         body {
-            font-family: 'Nanum Myeongjo', serif;
+            font-family: 'Noto Serif KR', serif;
             background: linear-gradient(135deg, #fdfbfb 0%, #f7f4f2 100%);
-            color: #333;
+            color: #4a4038;
             line-height: 1.8;
         }
 
@@ -22,356 +26,763 @@
             max-width: 480px;
             margin: 0 auto;
             background: white;
-            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+            box-shadow: 0 0 40px rgba(0,0,0,0.08);
             min-height: 100vh;
         }
 
-        /* 헤더 섹션 */
-        .header {
-            text-align: center;
-            padding: 60px 20px 40px;
-            background: linear-gradient(to bottom, #fff 0%, #faf9f8 100%);
+        .page {
+            display: none;
         }
 
-        .date-badge {
-            display: inline-block;
-            padding: 8px 24px;
-            background: #f0ebe6;
-            color: #8b7355;
-            font-size: 14px;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            border-radius: 20px;
+        .page.active {
+            display: block;
+            animation: fadeIn 0.6s ease-out;
         }
 
-        .names {
-            font-size: 32px;
-            font-weight: 300;
-            margin: 20px 0;
-            letter-spacing: 4px;
-            color: #5a4a42;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .names .heart {
-            color: #d4a574;
-            font-size: 28px;
-            margin: 0 10px;
-        }
-
-        .subtitle {
-            font-size: 16px;
-            color: #888;
-            margin-top: 20px;
-            line-height: 1.6;
-        }
-
-        /* 이미지 섹션 */
-        .image-section {
-            padding: 40px 20px;
-            text-align: center;
-            background: #faf9f8;
-        }
-
-        .image-placeholder {
+        .main-image {
             width: 100%;
-            max-width: 350px;
-            height: 400px;
+            height: 70vh;
             background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd3 100%);
-            margin: 0 auto;
-            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #b0a090;
-            font-size: 18px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            font-size: 16px;
+            position: relative;
         }
 
-        /* 메시지 섹션 */
-        .message-section {
-            padding: 50px 30px;
+        .date-overlay {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .date-text {
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: #8b7355;
+        }
+
+        .wedding-title {
             text-align: center;
-            line-height: 2;
-            color: #555;
+            padding: 50px 30px 30px;
         }
 
-        .message-section p {
-            margin: 10px 0;
+        .cursive {
+            font-family: 'Great Vibes', cursive;
+            font-size: 42px;
+            font-weight: 200;
+            color: #c9a97a;
+            margin-bottom: 20px;
+        }
+
+        .couple-names {
+            font-size: 28px;
+            font-weight: 400;
+            color: #5a4a42;
+            letter-spacing: 3px;
+            margin: 20px 0;
+        }
+
+        .message-box {
+            text-align: center;
+            padding: 40px 30px;
+            line-height: 2;
+            color: #666;
             font-size: 15px;
         }
 
-        .highlight {
-            color: #8b7355;
-            font-weight: 500;
-        }
-
-        /* 부모님 소개 */
-        .parents-section {
+        .venue-section {
             padding: 40px 30px;
             background: #faf9f8;
         }
 
-        .parents-title {
+        .section-title {
             text-align: center;
-            font-size: 14px;
-            color: #999;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
+            font-size: 18px;
+            color: #5a4a42;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
 
-        .parent-info {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .venue-name {
+            text-align: center;
+            font-size: 20px;
+            color: #8b7355;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .venue-address {
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .transport-info {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
             margin: 20px 0;
-            font-size: 15px;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .bus-number {
+            color: rgb(60, 195, 68);
+        }
+
+        .map-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .map-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            min-width: 80px;
+        }
+
+        .map-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .map-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+        }
+
+        .map-label {
+            font-size: 12px;
             color: #666;
         }
 
-        .parent-info .role {
+        .contact-section {
+            padding: 40px 30px;
+        }
+
+        .contact-group {
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .contact-label {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 12px;
+        }
+
+        .contact-name {
+            display: inline-block;
+            padding: 10px 18px;
+            margin: 5px;
+            background: #f8f6f4;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #5a4a42;
+        }
+
+        .contact-name:hover {
+            background: #8b7355;
+            color: white;
+        }
+
+        .account-section {
+            background: #faf9f8;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .account-title {
+            font-size: 15px;
             color: #8b7355;
-            margin: 0 10px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .account-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .account-item:hover {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .account-info {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .copy-icon {
+            color: #8b7355;
+            font-size: 12px;
+        }
+
+        .story-banner {
+            margin: 50px 30px;
+            padding: 60px 30px;
+            background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd3 100%);
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .story-banner:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .story-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+            color: #c9a97a;
+            margin-bottom: 15px;
+        }
+
+        .story-subtitle {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.8;
+        }
+
+        .share-btn {
+            margin: 30px;
+            padding: 16px;
+            background: #8b7355;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 15px;
+            font-family: 'Noto Serif KR', serif;
+            cursor: pointer;
+            width: calc(100% - 60px);
+            transition: all 0.3s;
+        }
+
+        .share-btn:hover {
+            background: #6d5a44;
         }
 
         .divider {
-            width: 40px;
+            width: 60px;
             height: 1px;
             background: #d4a574;
             margin: 30px auto;
         }
 
-        /* 날짜 및 장소 */
-        .details-section {
-            padding: 50px 30px;
+        .content-header {
+            padding: 30px;
             text-align: center;
+            background: #faf9f8;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .detail-item {
-            margin: 30px 0;
-        }
-
-        .detail-label {
-            font-size: 13px;
-            color: #999;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .detail-content {
-            font-size: 18px;
-            color: #5a4a42;
-            font-weight: 500;
-            line-height: 1.6;
-        }
-
-        .detail-content.large {
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
             font-size: 24px;
+            cursor: pointer;
             color: #8b7355;
-            margin: 15px 0;
         }
 
-        /* 지도 섹션 */
-        .map-section {
+        .content-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 32px;
+            color: #c9a97a;
+        }
+
+        .story-content {
+            padding: 40px 20px;
+        }
+
+        .story-item {
+            margin-bottom: 60px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b0a090;
+            margin-bottom: 8px;
+        }
+
+        .story-caption {
+            text-align: left;
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .story-text {
+            font-size: 15px;
+            color: #666;
+            line-height: 2;
+            padding: 0 10px;
+        }
+
+        .comment-section {
             padding: 40px 20px;
             background: #faf9f8;
         }
 
-        .map-title {
-            text-align: center;
-            font-size: 16px;
-            color: #5a4a42;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .map-placeholder {
-            width: 100%;
-            height: 300px;
-            background: #e8ddd3;
+        .comment-form {
+            background: white;
+            padding: 20px;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #b0a090;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
-        .address {
-            text-align: center;
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #8b7355;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: 'Noto Serif KR', serif;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #6d5a44;
+        }
+
+        .comments-list {
+            margin-top: 20px;
+        }
+
+        .comment-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .comment-author {
+            font-size: 14px;
+            font-weight: 700;
+            color: #5a4a42;
+        }
+
+        .comment-date {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .comment-text {
             font-size: 14px;
             color: #666;
             line-height: 1.8;
+            margin-bottom: 12px;
         }
 
-        .parking-info {
-            text-align: center;
-            margin-top: 15px;
-            padding: 12px;
-            background: white;
-            border-radius: 8px;
-            font-size: 13px;
-            color: #8b7355;
-        }
-
-        /* QR 섹션 */
-        .qr-section {
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .qr-placeholder {
-            width: 200px;
-            height: 200px;
-            background: white;
-            border: 2px solid #e8ddd3;
-            margin: 20px auto;
-            border-radius: 10px;
+        .comment-footer {
             display: flex;
+            justify-content: flex-end;
             align-items: center;
-            justify-content: center;
-            color: #b0a090;
+            gap: 6px;
         }
 
-        /* 푸터 */
-        .footer {
-            padding: 50px 20px;
-            text-align: center;
-            background: linear-gradient(to top, #f7f4f2 0%, white 100%);
-            color: #999;
+        .like-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .like-btn.liked {
+            color: #e74c3c;
+        }
+
+        .like-count {
             font-size: 13px;
-            line-height: 2;
+            color: #888;
         }
 
-        .footer-decoration {
-            font-size: 24px;
-            color: #d4a574;
-            margin-bottom: 20px;
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
         }
 
-        /* 반응형 */
+        .toast.show {
+            opacity: 1;
+        }
+
         @media (min-width: 768px) {
-            .container {
-                max-width: 600px;
-            }
-
-            .names {
-                font-size: 40px;
-            }
-
-            .image-placeholder {
-                max-width: 450px;
-                height: 500px;
-            }
-        }
-
-        /* 애니메이션 */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .container > * {
-            animation: fadeIn 0.8s ease-out;
+            .container { max-width: 600px; }
+            .cursive { font-size: 52px; }
+            .couple-names { font-size: 34px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 헤더 -->
-        <div class="header">
-            <div class="date-badge">2025. 12. 28. SUN</div>
-            <div class="names">
-                이영웅<span class="heart">♥</span>김소희
+        <div class="page active" id="mainPage">
+            <div class="main-image">
+                메인 이미지 (TBU)
+                <div class="date-overlay">
+                    <div class="date-text">2025. 12. 28. 12PM</div>
+                </div>
             </div>
-            <div class="subtitle">
-                저희 결혼합니다
-            </div>
-        </div>
 
-        <!-- 이미지 -->
-        <div class="image-section">
-            <div class="image-placeholder">
-                사진을 넣어주세요
+            <div class="wedding-title">
+                <div class="cursive">We're getting married</div>
+                <div class="couple-names">이영웅 x 김소희</div>
             </div>
-        </div>
 
-        <!-- 메시지 -->
-        <div class="message-section">
-            <p>소중한 발걸음으로</p>
-            <p>축복해주신다면</p>
-            <p>더없는 <span class="highlight">기쁨</span>이 될 것입니다.</p>
-        </div>
-
-        <!-- 부모님 소개 -->
-        <div class="parents-section">
-            <div class="parents-title">혼주에게 연락하기</div>
-            
-            <div class="parent-info">
-                <span>이개선 · 최순예</span>
-                <span class="role">의 차남</span>
-                <span style="font-weight: 500;">이영웅</span>
-            </div>
-            
-            <div class="divider"></div>
-            
-            <div class="parent-info">
-                <span>김홍식 · 이은애</span>
-                <span class="role">의 장녀</span>
-                <span style="font-weight: 500;">김소희</span>
-            </div>
-        </div>
-
-        <!-- 날짜 및 장소 -->
-        <div class="details-section">
-            <div class="detail-item">
-                <div class="detail-label">WEDDING DATE</div>
-                <div class="detail-content large">2025년 12월 28일 일요일</div>
-                <div class="detail-content">낮 12시</div>
+            <div class="message-box">
+                소중한 발걸음으로 축복해주신다면<br>
+                더없는 기쁨이 될 것입니다.
             </div>
 
             <div class="divider"></div>
 
-            <div class="detail-item">
-                <div class="detail-label">WEDDING PLACE</div>
-                <div class="detail-content">판교 엔씨소프트 컨벤션홀</div>
+            <div class="venue-section">
+                <div class="section-title">오시는 길</div>
+                <div class="venue-name">판교 NC소프트 컨벤션홀</div>
+                <div class="venue-address">
+                    경기 성남시 분당구 삼평동 668<br>
+                    🅿️ 주차 가능
+                </div>
+                
+                <div class="transport-info">
+                    <strong>대중교통</strong><br>
+                    신분당선 판교역 4번출구, 판교역서편 정류장<br>
+                    <span class="bus-number">66</span>, 
+                    <span class="bus-number">73</span>, 
+                    <span class="bus-number">602-2B</span>, 
+                    <span class="bus-number">602-1A</span>
+                    버스 탑승<br>
+                    엔씨소프트・안랩 정류장 하차
+                </div>
+
+                <div class="map-buttons">
+                    <a href="https://map.kakao.com/link/to/엔씨소프트,37.4020513,127.1087073" target="_blank" class="map-btn">
+                        <img src="https://developers.kakao.com/tool/resource/static/img/logo/map/kakaomap_basic.png" alt="카카오맵" class="map-icon">
+                        <span class="map-label">카카오맵</span>
+                    </a>
+                    <a href="https://map.naver.com/p/search/엔씨소프트/place/11607422" target="_blank" class="map-btn">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5f/38/89/5f3889df-abbc-08e2-6c0c-90336eef377c/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/400x400ia-75.webp" alt="네이버맵" class="map-icon">
+                        <span class="map-label">네이버맵</span>
+                    </a>
+                    <a href="https://www.tmap.co.kr/tmap2/mobile/route.jsp?name=엔씨소프트" target="_blank" class="map-btn">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/13/1e/03/131e0306-95c5-8372-e5e7-49b3d02f69fe/AppIcon-0-1x_U007emarketing-0-8-0-sRGB-85-220-0.png/400x400ia-75.webp" alt="티맵" class="map-icon">
+                        <span class="map-label">티맵</span>
+                    </a>
+                </div>
             </div>
+
+            <div class="contact-section">
+                <div class="section-title">혼주에게 연락하기</div>
+                
+                <div class="contact-group">
+                    <div class="contact-label">이개선 · 최순예의 차남 이영웅</div>
+                    <div>
+                        <span class="contact-name" onclick="callPhone('01053676103')">이개선</span>
+                        <span class="contact-name" onclick="callPhone('01094820862')">최순예</span>
+                        <span class="contact-name" onclick="callPhone('01038505525')">이영웅</span>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="contact-group">
+                    <div class="contact-label">김홍식 · 이은애의 장녀 김소희</div>
+                    <div>
+                        <span class="contact-name" onclick="callPhone('01026171938')">김홍식</span>
+                        <span class="contact-name" onclick="callPhone('01037011935')">이은애</span>
+                        <span class="contact-name" onclick="callPhone('01099381938')">김소희</span>
+                    </div>
+                </div>
+
+                <div class="account-section">
+                    <div class="account-title">마음 전하실 곳</div>
+                    <div class="account-item" onclick="copyAccount('64970201315566', '김소희 국민은행')">
+                        <div class="account-info">김소희 국민 649702-01-315566</div>
+                        <div class="copy-icon">복사하기</div>
+                    </div>
+                    <div class="account-item" onclick="copyAccount('3333035775278', '이영웅 카카오뱅크')">
+                        <div class="account-info">이영웅 카카오뱅크 3333-03-5775278</div>
+                        <div class="copy-icon">복사하기</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="story-banner" onclick="showPage('contentPage')">
+                <div class="story-title">Our Story</div>
+                <div class="story-subtitle">
+                    우리가 걸어온 동네,<br>그리고 우리만의 순간
+                </div>
+            </div>
+
+            <button class="share-btn" onclick="shareInvitation()">💌 청첩장 공유하기</button>
         </div>
 
-        <!-- 지도 -->
-        <div class="map-section">
-            <div class="map-title">오시는 길</div>
-            <div class="map-placeholder">
-                지도 API 연동
+        <div class="page" id="contentPage">
+            <div class="content-header">
+                <button class="back-btn" onclick="showPage('mainPage')">←</button>
+                <div class="content-title">Our Story</div>
             </div>
-            <div class="address">
-                경기 성남시 분당구 삼평동 668<br>
-                판교 엔씨소프트 컨벤션홀
-            </div>
-            <div class="parking-info">
-                🅿️ 주차 가능
-            </div>
-        </div>
 
-        <!-- QR 코드 -->
-        <div class="qr-section">
-            <div class="detail-label">모바일 청첩장 공유하기</div>
-            <div class="qr-placeholder">
-                QR 코드
-            </div>
-        </div>
+            <div class="story-content">
+                <div class="story-item">
+                    <div class="story-image">사진 1</div>
+                    <div class="story-caption">첫 번째 이야기</div>
+                    <div class="story-text">
+                        여기에 프리웨딩 스냅샷과 함께하는<br>
+                        스토리를 추가해주세요.
+                    </div>
+                </div>
 
-        <!-- 푸터 -->
-        <div class="footer">
-            <div class="footer-decoration">❀</div>
-            <p>참석이 어려우신 분들은</p>
-            <p>마음으로나마 축복해주시면 감사하겠습니다.</p>
+                <div class="story-item">
+                    <div class="story-image">사진 2</div>
+                    <div class="story-caption">두 번째 이야기</div>
+                    <div class="story-text">
+                        우리가 걸어온 동네의 추억들을<br>
+                        함께 나눠주세요.
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <div class="story-image">사진 3</div>
+                    <div class="story-caption">세 번째 이야기</div>
+                    <div class="story-text">
+                        우리만의 특별한 순간들
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-section">
+                <div class="section-title">축하 메시지</div>
+                
+                <div class="comment-form">
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="commentName" placeholder="이름" maxlength="20">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-input form-textarea" id="commentText" placeholder="축하 메시지를 남겨주세요 (최대 200자)" maxlength="200"></textarea>
+                    </div>
+                    <button class="submit-btn" onclick="submitComment()">작성하기</button>
+                </div>
+
+                <div class="comments-list" id="commentsList"></div>
+            </div>
         </div>
     </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        let comments = [
+            {
+                id: 1,
+                name: "홍길동",
+                text: "결혼을 진심으로 축하합니다! 오래오래 행복하세요 ❤️",
+                date: "2025-11-01",
+                likes: 15
+            },
+            {
+                id: 2,
+                name: "김철수",
+                text: "두 분의 앞날에 행복이 가득하길 바랍니다!",
+                date: "2025-11-02",
+                likes: 8
+            }
+        ];
+        let likedComments = new Set();
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            
+            if (pageId === 'contentPage') {
+                renderComments();
+            }
+            
+            window.scrollTo(0, 0);
+        }
+
+        function callPhone(number) {
+            window.location.href = `tel:${number}`;
+        }
+
+        function copyAccount(accountNumber, name) {
+            navigator.clipboard.writeText(accountNumber).then(() => {
+                showToast(`${name} 계좌번호가 복사되었습니다`);
+            });
+        }
+
+        function shareInvitation() {
+            const url = 'https://ksohee.github.io/wedding-1228/';
+            navigator.clipboard.writeText(url).then(() => {
+                showToast('청첩장 주소가 복사되었습니다');
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        function submitComment() {
+            const name = document.getElementById('commentName').value.trim();
+            const text = document.getElementById('commentText').value.trim();
+            
+            if (!name || !text) {
+                showToast('이름과 내용을 모두 입력해주세요');
+                return;
+            }
+            
+            const newComment = {
+                id: Date.now(),
+                name: name,
+                text: text,
+                date: new Date().toISOString().split('T')[0],
+                likes: 0
+            };
+            
+            comments.unshift(newComment);
+            renderComments();
+            
+            document.getElementById('commentName').value = '';
+            document.getElementById('commentText').value = '';
+            showToast('메시지가 작성되었습니다');
+        }
+
+        function toggleLike(commentId) {
+            const comment = comments.find(c => c.id === commentId);
+            if (!comment) return;
+            
+            if (likedComments.has(commentId)) {
+                comment.likes--;
+                likedComments.delete(commentId);
+            } else {
+                comment.likes++;
+                likedComments.add(commentId);
+            }
+            
+            renderComments();
+        }
+
+        function renderComments() {
+            const sortedComments = [...comments].sort((a, b) => b.likes - a.likes);
+            const commentsList = document.getElementById('commentsList');
+            
+            commentsList.innerHTML = sortedComments.map(comment => `
+                <div class="comment-item">
+                    <div class="comment-header">
+                        <div class="comment-author">${comment.name}</div>
+                        <div class="comment-date">${comment.date}</div>
+                    </div>
+                    <div class="comment-text">${comment.text}</div>
+                    <div class="comment-footer">
+                        <span class="like-count">${comment.likes}</span>
+                        <button class="like-btn ${likedComments.has(comment.id) ? 'liked' : ''}" onclick="toggleLike(${comment.id})">
+                            ${likedComments.has(comment.id) ? '❤️' : '🤍'}
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.addEventListener('load', () => {
+            renderComments();
+        });
+    </script>
 </body>
 </html>
