@@ -47,7 +47,9 @@
         .main-image {
             width: 100%;
             height: 70vh;
-            background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd3 100%);
+            background-image: url('https://drive.google.com/uc?export=view&id=1Xw3Wbn9HbbzogQDHqFsj09n-xp25QW2y');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -260,11 +262,30 @@
         .story-banner {
             margin: 50px 30px;
             padding: 60px 30px;
-            background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd3 100%);
+            background-image: url('https://drive.google.com/uc?export=view&id=1O-3qXBzyypfGvXL4HjeRyPRx6XmgT-AM');
+            background-size: cover;
+            background-position: center;
             border-radius: 15px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
+            position: relative;
+        }
+
+        .story-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+        }
+
+        .story-banner > * {
+            position: relative;
+            z-index: 1;
         }
 
         .story-banner:hover {
@@ -349,12 +370,8 @@
 
         .story-image {
             width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd3 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #b0a090;
+            height: auto;
+            display: block;
             margin-bottom: 8px;
         }
 
@@ -510,7 +527,6 @@
     <div class="container">
         <div class="page active" id="mainPage">
             <div class="main-image">
-                메인 이미지 (TBU)
                 <div class="date-overlay">
                     <div class="date-text">2025. 12. 28. 12PM</div>
                 </div>
@@ -548,16 +564,16 @@
                 </div>
 
                 <div class="map-buttons">
-                    <a href="https://kko.kakao.com/cMTDxdwSGm" target="_blank" class="map-btn">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c6/b5/e9/c6b5e97d-9e54-a48c-57ff-b4f4ed8a4e59/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/200x200ia-75.webp" alt="카카오맵" class="map-icon">
+                    <a href="https://map.kakao.com/link/to/엔씨소프트,37.4020513,127.1087073" target="_blank" class="map-btn">
+                        <img src="https://developers.kakao.com/tool/resource/static/img/logo/map/kakaomap_basic.png" alt="카카오맵" class="map-icon">
                         <span class="map-label">카카오맵</span>
                     </a>
-                    <a href="https://naver.me/5dA99hJf" target="_blank" class="map-btn">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5f/38/89/5f3889df-abbc-08e2-6c0c-90336eef377c/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/200x200ia-75.webp" alt="네이버맵" class="map-icon">
+                    <a href="https://map.naver.com/p/search/엔씨소프트/place/11607422" target="_blank" class="map-btn">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5f/38/89/5f3889df-abbc-08e2-6c0c-90336eef377c/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/400x400ia-75.webp" alt="네이버맵" class="map-icon">
                         <span class="map-label">네이버맵</span>
                     </a>
-                    <a href="https://tmap.life/2f5e7225" target="_blank" class="map-btn">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/13/1e/03/131e0306-95c5-8372-e5e7-49b3d02f69fe/AppIcon-0-1x_U007emarketing-0-8-0-sRGB-85-220-0.png/200x200ia-75.webp" alt="티맵" class="map-icon">
+                    <a href="https://www.tmap.co.kr/tmap2/mobile/route.jsp?name=엔씨소프트" target="_blank" class="map-btn">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/13/1e/03/131e0306-95c5-8372-e5e7-49b3d02f69fe/AppIcon-0-1x_U007emarketing-0-8-0-sRGB-85-220-0.png/400x400ia-75.webp" alt="티맵" class="map-icon">
                         <span class="map-label">티맵</span>
                     </a>
                 </div>
@@ -617,7 +633,7 @@
 
             <div class="story-content">
                 <div class="story-item">
-                    <div class="story-image">사진 1</div>
+                    <img src="https://drive.google.com/uc?export=view&id=15J7bRM6Iw5_abuRvvQoKJjuGf-OQtSB1" alt="사진 1" class="story-image">
                     <div class="story-caption">첫 번째 이야기</div>
                     <div class="story-text">
                         여기에 프리웨딩 스냅샷과 함께하는<br>
@@ -626,7 +642,7 @@
                 </div>
 
                 <div class="story-item">
-                    <div class="story-image">사진 2</div>
+                    <img src="https://drive.google.com/uc?export=view&id=1YV42X9NICn_tMt3_wC_vuNbW60ZVyNxW" alt="사진 2" class="story-image">
                     <div class="story-caption">두 번째 이야기</div>
                     <div class="story-text">
                         우리가 걸어온 동네의 추억들을<br>
@@ -635,10 +651,98 @@
                 </div>
 
                 <div class="story-item">
-                    <div class="story-image">사진 3</div>
+                    <img src="https://drive.google.com/uc?export=view&id=1pZOUW8Vvzwi11qRiaFvhaPfoNdOxj347" alt="사진 3" class="story-image">
                     <div class="story-caption">세 번째 이야기</div>
                     <div class="story-text">
                         우리만의 특별한 순간들
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1EgZbbVEaDwHrqvl2xWcoI5uS4tph2wl_" alt="사진 4" class="story-image">
+                    <div class="story-caption">네 번째 이야기</div>
+                    <div class="story-text">
+                        함께한 순간들
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1io7c1L6zeEjAe2uSn3wm14zXCNbPpcWO" alt="사진 5" class="story-image">
+                    <div class="story-caption">다섯 번째 이야기</div>
+                    <div class="story-text">
+                        소중한 추억
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1xjz4gDpm3UkmTD8yojB3hSrJwKvLgfBD" alt="사진 6" class="story-image">
+                    <div class="story-caption">여섯 번째 이야기</div>
+                    <div class="story-text">
+                        행복한 시간
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1f0_15DPM918FAT1Zy_chlDYuDSUzvJ05" alt="사진 7" class="story-image">
+                    <div class="story-caption">일곱 번째 이야기</div>
+                    <div class="story-text">
+                        특별한 날들
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1wS05iagX10exJKjoo1pK_DfPv2aI-uGA" alt="사진 8" class="story-image">
+                    <div class="story-caption">여덟 번째 이야기</div>
+                    <div class="story-text">
+                        함께 만들어가는 이야기
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1zZEyvu386tTxLnP9nmkC2fJ-pwet1vIZ" alt="사진 9" class="story-image">
+                    <div class="story-caption">아홉 번째 이야기</div>
+                    <div class="story-text">
+                        우리의 여정
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1lqI74txHns8bOyq0NRlCY-ad3MNfiLC6" alt="사진 10" class="story-image">
+                    <div class="story-caption">열 번째 이야기</div>
+                    <div class="story-text">
+                        아름다운 순간
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1QdQHcQA7eodyzGbyzL4B24x9AdXgwFba" alt="사진 11" class="story-image">
+                    <div class="story-caption">열한 번째 이야기</div>
+                    <div class="story-text">
+                        함께한 추억
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1IRSgjml13rItVAHY0AoBQ37Sw4xv8dHD" alt="사진 12" class="story-image">
+                    <div class="story-caption">열두 번째 이야기</div>
+                    <div class="story-text">
+                        소중한 기억
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1YG7dvA526dNzxluTOqA3z-UAEwyqQh7N" alt="사진 13" class="story-image">
+                    <div class="story-caption">열세 번째 이야기</div>
+                    <div class="story-text">
+                        우리의 시간
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1AkW5zpdoKrJ_2TjSHhB_BlQ_1fFuObHE" alt="사진 15" class="story-image">
+                    <div class="story-caption">열다섯 번째 이야기</div>
+                    <div class="story-text">
+                        영원한 약속
                     </div>
                 </div>
             </div>
