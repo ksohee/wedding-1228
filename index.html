@@ -1,25 +1,223 @@
-<!doctype html>
-<html lang="ko" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>이영웅 x 김소희</title>
-
-    <!-- OG tags -->
-    <meta property="og:title" content="이영웅 x 김소희" />
-    <meta property="og:description" content="12월 28일(일) 오후 12시" />
-    <meta property="og:image" content="https://ksohee.github.io/wedding-1228/images/chack.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+KR:wght@200;300;400;500;600;700&display=swap"
-      rel="stylesheet"
+    <title>이영웅 x 김소희</title>
+
+    <meta property="og:title" content="이영웅 x 김소희" />
+    <meta property="og:description" content="12월 28일(일) 오후 12시" />
+    <meta
+      property="og:image"
+      content="https://ksohee.github.io/wedding-1228/images/chack.png"
     />
+
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./app.js" defer></script>
   </head>
-  <body class="bg-[#faf9f8]">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class="fade">
+    <div id="toast"></div>
+
+    <!-- 메인 이미지 -->
+    <section style="padding:0;">
+      <div
+        style="
+          height: 360px;
+          background-image: url('./images/chack.png');
+          background-size: cover;
+          background-position: center;
+          position: relative;
+        "
+      >
+        <div
+          style="
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.8);
+            padding: 8px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+            font-size: 14px;
+          "
+        >
+          2025. 12. 28. 12PM
+        </div>
+      </div>
+    </section>
+
+    <!-- 제목 -->
+    <section style="text-align:center;">
+      <h1
+        style="
+          font-family:'Great Vibes';
+          font-size:42px;
+          color:#c9a97a;
+          margin-bottom:0;
+        "
+      >
+        We're getting married
+      </h1>
+      <h2 style="font-size:28px; margin:8px 0;">이영웅 x 김소희</h2>
+      <p style="font-size:13px; line-height:1.8;">
+        소중한 발걸음으로 축복해주신다면<br />
+        더없는 기쁨이 될 것입니다.
+      </p>
+    </section>
+
+    <!-- 오시는 길 -->
+    <section>
+      <h2 style="font-size:16px; margin-bottom:10px;">오시는 길</h2>
+      <div class="card">
+        <p style="font-weight:bold;">판교 NC소프트 컨벤션홀</p>
+        <p>경기 성남시 분당구 삼평동 668 (🅿️ 주차 가능)</p>
+
+        <p style="margin-top:10px; font-weight:bold;">대중교통</p>
+        <p>신분당선 판교역 4번출구, 판교역서편 정류장</p>
+        <p>
+          버스:
+          <span style="color:rgb(60,195,68); font-weight:bold;">
+            66, 73, 602-2B, 602-1A
+          </span>
+        </p>
+
+        <!-- 지도 버튼 -->
+        <div style="display:flex; gap:10px; margin-top:14px;">
+          <a
+            href="https://map.kakao.com/link/to/엔씨소프트,37.4020513,127.1087073"
+            target="_blank"
+            style="
+              flex:1;
+              background:white;
+              text-align:center;
+              padding:8px;
+              border-radius:10px;
+              font-size:12px;
+            "
+          >
+            카카오맵
+          </a>
+
+          <a
+            href="https://map.naver.com/p/search/%EC%97%94%EC%94%A8%EC%86%8C%ED%94%84%ED%8A%B8/place/11607422"
+            target="_blank"
+            style="
+              flex:1;
+              background:white;
+              text-align:center;
+              padding:8px;
+              border-radius:10px;
+              font-size:12px;
+            "
+          >
+            네이버맵
+          </a>
+
+          <a
+            href="https://www.tmap.co.kr/tmap2/mobile/route.jsp?name=%EC%97%94%EC%94%A8%EC%86%8C%ED%94%84%ED%8A%B8"
+            target="_blank"
+            style="
+              flex:1;
+              background:white;
+              text-align:center;
+              padding:8px;
+              border-radius:10px;
+              font-size:12px;
+            "
+          >
+            티맵
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 혼주 연락처 -->
+    <section>
+      <h2 style="font-size:16px; margin-bottom:10px;">혼주에게 연락하기</h2>
+
+      <div class="card">
+        <p style="font-size:12px; font-weight:bold;">신랑측</p>
+        <p style="font-size:13px;">
+          이개선(☎ <a href="tel:010-5367-6103">010-5367-6103</a>)
+          · 최순예(☎ <a href="tel:010-9482-0862">010-9482-0862</a>)
+          의 차남 이영웅(☎ <a href="tel:010-3850-5525">010-3850-5525</a>)
+        </p>
+      </div>
+
+      <div class="card">
+        <p style="font-size:12px; font-weight:bold;">신부측</p>
+        <p style="font-size:13px;">
+          김홍식(☎ <a href="tel:010-2617-1938">010-2617-1938</a>)
+          · 이은애(☎ <a href="tel:010-3701-1935">010-3701-1935</a>)
+          의 장녀 김소희(☎ <a href="tel:010-9938-1938">010-9938-1938</a>)
+        </p>
+      </div>
+    </section>
+
+    <!-- 마음 전하실 곳 -->
+    <section>
+      <h2 style="font-size:16px; margin-bottom:10px;">마음 전하실 곳</h2>
+
+      <div class="card" style="display:flex; justify-content:space-between;">
+        <div>
+          <p style="font-size:12px; font-weight:bold;">신부 김소희</p>
+          <p>국민 649702-01-315566</p>
+        </div>
+        <button onclick="copyText('64970201315566')" style="background:white;">복사</button>
+      </div>
+
+      <div class="card" style="display:flex; justify-content:space-between;">
+        <div>
+          <p style="font-size:12px; font-weight:bold;">신랑 이영웅</p>
+          <p>카카오뱅크 3333-03-5775278</p>
+        </div>
+        <button onclick="copyText('3333035775278')" style="background:white;">복사</button>
+      </div>
+    </section>
+
+    <!-- Our Story -->
+    <div class="story-banner">
+      <a href="./story.html">
+        <div
+          style="
+            background-image:url('./images/our_story.png');
+            background-size:cover;
+            background-position:center;
+            text-align:center;
+            background-color:rgba(255,255,255,0.7);
+            background-blend-mode:overlay;
+          "
+        >
+          <p
+            style="
+              font-family:'Great Vibes';
+              font-size:36px;
+              color:#c9a97a;
+              margin:0;
+            "
+          >
+            Our Story
+          </p>
+          <p style="font-size:13px; margin:0;">
+            우리가 걸어온 동네, 그리고 우리만의 순간
+          </p>
+        </div>
+      </a>
+    </div>
+
+    <!-- 공유하기 -->
+    <section>
+      <div
+        class="btn"
+        onclick="copyText('https://ksohee.github.io/wedding-1228/')"
+      >
+        💌 청첩장 공유하기
+      </div>
+      <p style="font-size:10px; text-align:center; color:#888;">
+        링크가 복사됩니다.
+      </p>
+    </section>
   </body>
 </html>
