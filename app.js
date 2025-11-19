@@ -1,69 +1,112 @@
-/* Toast */
+/* ======================
+   TOAST
+====================== */
 function showToast(msg) {
-  const t = document.getElementById("toast");
-  t.innerText = msg;
-  t.style.display = "block";
-  setTimeout(() => t.style.display = "none", 2000);
+    const t = document.getElementById("toast");
+    t.innerText = msg;
+    t.classList.add("show");
+    setTimeout(() => t.classList.remove("show"), 2000);
 }
 
-/* 복사하기 */
-function copyText(text) {
-  navigator.clipboard.writeText(text);
-  showToast("복사되었습니다");
+/* ======================
+   PHONE CALL
+====================== */
+function callPhone(num) {
+    location.href = `tel:${num}`;
 }
 
-/* 댓글 기능 (story.html 전용) */
-if (location.pathname.includes("story")) {
-  const list = document.getElementById("comment-list");
-  let comments = JSON.parse(localStorage.getItem("wedding_comments") || "[]");
+/* ======================
+   ACCOUNT COPY
+====================== */
+function copyAccount(num) {
+    navigator.clipboard.writeText(num);
+    showToast("계좌번호가 복사되었습니다");
+}
 
-  function renderComments() {
-    list.innerHTML = "";
-    comments
-      .sort((a, b) => b.likes - a.likes)
-      .forEach((c, idx) => {
-        const div = document.createElement("div");
-        div.className = "comment fade";
-        div.innerHTML = `
-          <div class="comment-header">
-            <span>${c.name}</span>
-            <span>${c.date}</span>
-          </div>
-          <div>${c.text}</div>
-          <div class="like ${c.liked ? "red" : ""}" onclick="toggleLike(${idx})">
-            ❤️ ${c.likes}
-          </div>
-        `;
-        list.appendChild(div);
-      });
-  }
+/* ======================
+   SHARE LINK
+====================== */
+function shareInvitation() {
+    navigator.clipboard.writeText("https://ksohee.github.io/wedding-1228/");
+    showToast("청첩장 주소가 복사되었습니다");
+}
 
-  renderComments();
+/* ======================
+   COMMENTS (story.html)
+====================== */
 
-  window.addComment = () => {
-    const name = document.getElementById("c-name").value.trim();
-    const text = document.getElementById("c-text").value.trim();
-    if (!name || !text) return showToast("이름과 내용을 입력해주세요");
+let comments = JSON.parse(localStorage.getItem("wedding_comments") || "[]");
+let liked = new Set(JSON.parse(localStorage.getItem("wedding_likes") || "[]"));
 
-    comments.unshift({
-      name,
-      text,
-      date: new Date().toISOString().slice(0, 10),
-      likes: 0,
-      liked: false,
-    });
+function submitComment() {
+    const name = document.getElementById("commentName").value.trim();
+    const text = document.getElementById("commentText").value.trim();
 
+    if (!name || !text) {
+        showToast("이름과 내용을 입력해주세요");
+        return;
+    }
+
+    const c = {
+        id: Date.now(),
+        name,
+        text,
+        date: new Date().toISOString().slice(0, 10),
+        likes: 0
+    };
+
+    comments.unshift(c);
     localStorage.setItem("wedding_comments", JSON.stringify(comments));
-    renderComments();
-    document.getElementById("c-name").value = "";
-    document.getElementById("c-text").value = "";
-    showToast("댓글이 등록되었습니다");
-  };
 
-  window.toggleLike = (index) => {
-    comments[index].liked = !comments[index].liked;
-    comments[index].likes += comments[index].liked ? 1 : -1;
-    localStorage.setItem("wedding_comments", JSON.stringify(comments));
+    document.getElementById("commentName").value = "";
+    document.getElementById("commentText").value = "";
+
     renderComments();
-  };
+    showToast("메시지가 작성되었습니다");
 }
+
+function toggleLike(id) {
+    const c = comments.find(x => x.id === id);
+    if (!c) return;
+
+    if (liked.has(id)) {
+        liked.delete(id);
+        c.likes--;
+    } else {
+        liked.add(id);
+        c.likes++;
+    }
+
+    localStorage.setItem("wedding_likes", JSON.stringify([...liked]));
+    localStorage.setItem("wedding_comments", JSON.stringify(comments));
+
+    renderComments();
+}
+
+function renderComments() {
+    if (!document.getElementById("commentsList")) return;
+
+    const sorted = [...comments].sort((a, b) => b.likes - a.likes);
+    const list = document.getElementById("commentsList");
+
+    list.innerHTML = sorted
+        .map(
+            (c) => `
+        <div class="comment-item fade">
+            <div class="comment-header">
+                <div class="comment-author">${c.name}</div>
+                <div class="comment-date">${c.date}</div>
+            </div>
+            <div class="comment-text">${c.text}</div>
+            <div class="comment-footer">
+                <span class="like-count">${c.likes}</span>
+                <button class="like-btn ${liked.has(c.id) ? "liked" : ""}" onclick="toggleLike(${c.id})">
+                    ${liked.has(c.id) ? "❤️" : "🤍"}
+                </button>
+            </div>
+        </div>`
+        )
+        .join("");
+}
+
+document.addEventListener("DOMContentLoaded", renderComments);
