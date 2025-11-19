@@ -1,196 +1,197 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Our Story</title>
+
+    <title>Our Story – 이영영웅 x 김소희</title>
 
     <link rel="stylesheet" href="./style.css" />
     <script src="./app.js" defer></script>
-  </head>
-  <body class="fade">
-    <div id="toast"></div>
+</head>
 
-    <!-- 헤더 -->
-    <section
-      style="
-        display:flex;
-        align-items:center;
-        gap:10px;
-        padding:14px 16px;
-        position:sticky;
-        top:0;
-        background:#faf9f8dd;
-        backdrop-filter:blur(4px);
-        z-index:100;
-      "
-    >
-      <a href="./index.html" style="font-size:14px;">← 뒤로</a>
-      <div
-        style="
-          flex:1;
-          text-align:center;
-          font-family:'Great Vibes';
-          font-size:32px;
-          color:#c9a97a;
-        "
-      >
-        Our Story
-      </div>
-      <div style="width:40px;"></div>
-    </section>
+<body>
+    <div class="toast" id="toast"></div>
 
-    <section class="fade">
-      <h2>우리집</h2>
-      <p>여기에 내용을 입력해 주세요.</p>
+    <!-- HEADER -->
+    <div class="content-header">
+        <button class="back-btn" onclick="location.href='./index.html'">←</button>
+        <div class="content-title">Our Story</div>
+    </div>
 
-      <!-- 1~10 -->
-      <img src="https://ksohee.github.io/wedding-1228/images/home_01.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/home_02.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/home_03.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/home_04.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/home_05.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/home_06.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/home_07.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/home_08.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/home_09.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/home_10.jpg" />
-    </section>
+    <div class="story-content fade">
 
-    <section class="fade">
-      <h2>온전한 휴식</h2>
-      <p>여기에 내용을 입력해 주세요.</p>
+        <!-- ===== SECTION TEMPLATE ===== -->
 
-      <img src="https://ksohee.github.io/wedding-1228/images/bed_01.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/bed_02.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/bed_03.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/bed_04.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/bed_05.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/bed_06.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/bed_07.jpg" />
-    </section>
+        <!-- 반복: 섹션 제목 + 설명 + 이미지 리스트 -->
 
-    <section class="fade">
-      <h2>우리 차</h2>
-      <p>여기에 내용을 입력해 주세요.</p>
+        <!-- ----------------------------------
+        [섹션 1] 우리집
+        ----------------------------------- -->
+        <div class="story-section-title">우리집</div>
+        <div class="story-section-desc">여기에 내용을 입력해 주세요.</div>
 
-      <img src="https://ksohee.github.io/wedding-1228/images/car_01.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/car_02.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/car_03.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/car_04.jpg" />
-    </section>
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/home_01.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/home_02.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/home_03.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/home_04.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/home_05.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/home_06.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/home_07.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/home_08.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/home_09.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/home_10.jpg">
 
-    <section class="fade">
-      <h2>고인돌 공원</h2>
-      <p>여기에 내용을 입력해 주세요.</p>
 
-      <img src="https://ksohee.github.io/wedding-1228/images/dolmen_01.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/dolmen_02.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/dolmen_03.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/dolmen_04.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/dolmen_05.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/dolmen_06.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/dolmen_07.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/dolmen_08.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/dolmen_09.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/dolmen_10.jpg" />
-    </section>
+        <!-- ----------------------------------
+        [섹션 2] 온전한 휴식
+        ----------------------------------- -->
+        <div class="story-section-title">온전한 휴식</div>
+        <div class="story-section-desc">여기에 내용을 입력해 주세요.</div>
 
-    <section class="fade">
-      <h2>골든 빌라</h2>
-      <p>여기에 내용을 입력해 주세요.</p>
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/bed_01.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/bed_02.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/bed_03.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/bed_04.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/bed_05.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/bed_06.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/bed_07.jpg">
 
-      <img src="https://ksohee.github.io/wedding-1228/images/golden.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/prope_01.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/prope_02.jpg" />
-    </section>
 
-    <section class="fade">
-      <h2>양재 시민의 숲역 2번 출구</h2>
-      <p>여기에 내용을 입력해 주세요.</p>
+        <!-- ----------------------------------
+        [섹션 3] 우리 차
+        ----------------------------------- -->
+        <div class="story-section-title">우리 차</div>
+        <div class="story-section-desc">여기에 내용을 입력해 주세요.</div>
 
-      <img src="https://ksohee.github.io/wedding-1228/images/subway_01.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/subway_02.jpg" />
-    </section>
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/car_01.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/car_02.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/car_03.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/car_04.jpg">
 
-    <section class="fade">
-      <h2>추억의 장소</h2>
-      <p>여기에 내용을 입력해 주세요.</p>
 
-      <img src="https://ksohee.github.io/wedding-1228/images/bugger_01.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/bugger_02.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/bugger_03.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/bugger_04.jpg" />
+        <!-- ----------------------------------
+        [섹션 4] 고인돌 공원
+        ----------------------------------- -->
+        <div class="story-section-title">고인돌 공원</div>
+        <div class="story-section-desc">여기에 내용을 입력해 주세요.</div>
 
-      <img src="https://ksohee.github.io/wedding-1228/images/quisson_01.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/quisson_02.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/quisson_03.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/quisson_04.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/quisson_05.jpg" />
-    </section>
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/dolmen_01.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/dolmen_02.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/dolmen_03.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/dolmen_04.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/dolmen_05.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/dolmen_06.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/dolmen_07.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/dolmen_08.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/dolmen_09.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/dolmen_10.jpg">
 
-    <section class="fade">
-      <h2>양재천</h2>
-      <p>여기에 내용을 입력해 주세요.</p>
 
-      <img src="https://ksohee.github.io/wedding-1228/images/streem_01.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/streem_02.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/streem_03.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/streem_04.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/streem_05.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/streem_06.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/streem_07.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/streem_08.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/streem_09.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/streem_10.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/streem_11.jpg" />
-    </section>
+        <!-- ----------------------------------
+        [섹션 5] 골든 빌라
+        ----------------------------------- -->
+        <div class="story-section-title">골든 빌라</div>
+        <div class="story-section-desc">여기에 내용을 입력해 주세요.</div>
 
-    <section class="fade">
-      <h2>양재 근린공원</h2>
-      <p>여기에 내용을 입력해 주세요.</p>
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/golden.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/prope_01.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/prope_02.jpg">
 
-      <img src="https://ksohee.github.io/wedding-1228/images/park_01.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/park_02.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/park_03.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/park_04.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/park_05.jpg" />
-    </section>
 
-    <section class="fade">
-      <h2>축구</h2>
-      <p>여기에 내용을 입력해 주세요.</p>
+        <!-- ----------------------------------
+        [섹션 6] 양재 시민의 숲역 2번 출구
+        ----------------------------------- -->
+        <div class="story-section-title">양재 시민의 숲역 2번 출구</div>
+        <div class="story-section-desc">여기에 내용을 입력해 주세요.</div>
 
-      <img src="https://ksohee.github.io/wedding-1228/images/ground_01.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/ground_02.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/ground_03.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/grouud_04.jpg" />
-      <img src="https://ksohee.github.io/wedding-1228/images/grpund_05.jpg" />
-    </section>
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/subway_01.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/subway_02.jpg">
 
-    <!-- 사진 크레딧 -->
-    <section class="fade">
-      <p style="font-size:12px; color:#888;">사진: Tora Park</p>
-      <p style="font-size:12px; color:#888;">글: 이영웅</p>
-    </section>
 
-    <!-- 댓글 영역 -->
-    <section class="fade">
-      <h2 style="margin-bottom:10px;">댓글</h2>
+        <!-- ----------------------------------
+        [섹션 7] 추억의 장소
+        ----------------------------------- -->
+        <div class="story-section-title">추억의 장소</div>
+        <div class="story-section-desc">여기에 내용을 입력해 주세요.</div>
 
-      <!-- 입력 -->
-      <div class="card">
-        <p style="font-size:12px; margin-bottom:6px;">이름</p>
-        <input id="c-name" maxlength="20" />
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/bugger_01.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/bugger_02.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/bugger_03.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/bugger_04.jpg">
 
-        <p style="font-size:12px; margin-top:10px;">내용</p>
-        <textarea id="c-text" rows="4" maxlength="200"></textarea>
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/quisson_01.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/quisson_02.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/quisson_03.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/quisson_04.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/quisson_05.jpg">
 
-        <div class="btn" onclick="addComment()">작성하기</div>
-      </div>
 
-      <!-- 리스트 -->
-      <div id="comment-list"></div>
-    </section>
-  </body>
+        <!-- ----------------------------------
+        [섹션 8] 양재천
+        ----------------------------------- -->
+        <div class="story-section-title">양재천</div>
+        <div class="story-section-desc">여기에 내용을 입력해 주세요.</div>
+
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/streem_01.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/streem_02.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/streem_03.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/streem_04.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/streem_05.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/streem_06.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/streem_07.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/streem_08.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/streem_09.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/streem_10.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/streem_11.jpg">
+
+
+        <!-- ----------------------------------
+        [섹션 9] 양재 근린공원
+        ----------------------------------- -->
+        <div class="story-section-title">양재 근린공원</div>
+        <div class="story-section-desc">여기에 내용을 입력해 주세요.</div>
+
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/park_01.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/park_02.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/park_03.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/park_04.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/park_05.jpg">
+
+
+        <!-- ----------------------------------
+        [섹션 10] 축구
+        ----------------------------------- -->
+        <div class="story-section-title">축구</div>
+        <div class="story-section-desc">여기에 내용을 입력해 주세요.</div>
+
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/ground_01.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/ground_02.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/ground_03.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/grouud_04.jpg">
+        <img class="story-image" src="https://ksohee.github.io/wedding-1228/images/grpund_05.jpg">
+
+
+        <!-- 사진 크레딧 -->
+        <p class="story-caption">사진: Tora Park</p>
+        <p class="story-caption">글: 이영웅</p>
+
+    </div>
+
+    <!-- 댓글 섹션 -->
+    <div class="comment-section fade">
+        <div class="section-title">축하 메시지</div>
+
+        <div class="comment-form">
+            <input id="commentName" class="form-input" maxlength="20" placeholder="이름" />
+            <textarea id="commentText" class="form-input" maxlength="200" placeholder="축하 메시지를 남겨주세요 (최대 200자)"></textarea>
+            <button class="submit-btn" onclick="submitComment()">작성하기</button>
+        </div>
+
+        <div id="commentsList"></div>
+    </div>
+
+</body>
+
 </html>
