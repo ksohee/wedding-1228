@@ -35,11 +35,15 @@ function showToast(text) {
 }
 
 /* ===========================
-   댓글
+   GitHub Issues 기반 댓글 시스템
 =========================== */
-let comments = [];
 
-function submitComment() {
+const GITHUB_TOKEN = "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";
+const REPO_OWNER = "ksohee";
+const REPO_NAME = "wedding-1228";
+
+/* --- 댓글 작성 --- */
+async function submitComment() {
     const name = document.getElementById("commentName").value.trim();
     const text = document.getElementById("commentText").value.trim();
 
@@ -48,35 +52,70 @@ function submitComment() {
         return;
     }
 
-    comments.unshift({
-        id: Date.now(),
-        name,
-        text,
-        date: new Date().toISOString().split("T")[0]
-    });
+    const issueTitle = `💌 ${name}님의 축하 메시지`;
+    const issueBody = `${text}\n\n작성자: ${name}`;
 
-    renderComments();
+    try {
+        const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `token ${GITHUB_TOKEN}`
+            },
+            body: JSON.stringify({
+                title: issueTitle,
+                body: issueBody,
+                labels: ["comment"]
+            })
+        });
 
-    document.getElementById("commentName").value = "";
-    document.getElementById("commentText").value = "";
+        if (res.ok) {
+            showToast("축하 메시지가 등록되었습니다!");
 
-    showToast("메시지가 작성되었습니다");
+            document.getElementById("commentName").value = "";
+            document.getElementById("commentText").value = "";
+
+            loadComments(); // 즉시 목록 갱신
+        } else {
+            showToast("등록 실패 (API 제한 또는 권한 문제)");
+        }
+
+    } catch (e) {
+        showToast("오류가 발생했습니다");
+    }
 }
 
-function renderComments() {
+/* --- 댓글 불러오기 --- */
+async function loadComments() {
     const list = document.getElementById("commentsList");
+    list.innerHTML = "<div>불러오는 중...</div>";
 
-    list.innerHTML = comments
-        .map(
-            c => `
-        <div class="comment-item">
-            <div class="comment-author">${c.name}</div>
-            <div class="comment-date">${c.date}</div>
-            <div class="comment-text">${c.text}</div>
-        </div>
-        `
-        )
-        .join("");
+    try {
+        const res = await fetch(
+            `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues?labels=comment`
+        );
+        const issues = await res.json();
+
+        list.innerHTML = "";
+
+        issues.forEach(issue => {
+            const created = new Date(issue.created_at).toLocaleDateString("ko-KR");
+
+            const item = document.createElement("div");
+            item.className = "comment-item";
+            item.innerHTML = `
+                <div class="comment-author">${issue.title.replace("💌 ", "")}</div>
+                <div class="comment-date">${created}</div>
+                <div class="comment-text">${issue.body}</div>
+            `;
+
+            list.appendChild(item);
+        });
+
+    } catch (e) {
+        list.innerHTML = "<div>댓글을 불러오지 못했습니다</div>";
+    }
 }
 
-window.addEventListener("load", renderComments);
+/* --- 페이지 로딩 시 댓글 목록 불러오기 --- */
+document.addEventListener("DOMContentLoaded", loadComments);
