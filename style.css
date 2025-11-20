@@ -358,16 +358,17 @@ body {
 }
 
 .story-caption {
-    font-size: 13px;
-    font-weight: 400;
-    color: #888888;
-    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #5a4a42;
+    margin-bottom: 12px;
 }
 
 .story-text {
-    font-size: 15px;
-    color: #666;
+    font-size: 14px;
+    color: #888;
     margin-bottom: 20px;
+    line-height: 1.7;
 }
 
 .story-image {
