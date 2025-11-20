@@ -9,7 +9,7 @@
 
 body {
     font-family: 'Noto Serif KR', serif;
-    background: #fdfcfb;
+    background: linear-gradient(135deg, #fdfbfb 0%, #f7f4f2 100%);
     color: #4a4038;
     line-height: 1.8;
 }
@@ -316,13 +316,6 @@ body {
 /* ===========================
    STORY PAGE
 =========================== */
-
-.container {
-    max-width: 480px;
-    margin: 0 auto;
-    background: white;
-    min-height: 100vh;
-}
 
 .content-header {
     padding: 25px 20px;
