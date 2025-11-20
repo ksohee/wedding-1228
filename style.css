@@ -131,6 +131,7 @@ body {
 
 .transport-info strong {
     color: #8B7335;
+    font-weight: 400;
 }
 
 .bus-number {
@@ -285,7 +286,7 @@ body {
 
 .story-subtitle {
     font-size: 14px;
-    color: #666;
+    color: #8b7335;
     line-height: 1.8;
 }
 
