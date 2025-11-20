@@ -20,6 +20,7 @@ body {
     background: white;
     box-shadow: 0 0 40px rgba(0,0,0,0.08);
     min-height: 100vh;
+    padding-bottom: 40px;
 }
 
 /* ===========================
@@ -126,6 +127,15 @@ body {
     font-size: 14px;
     color: #666;
     margin: 25px 0;
+}
+
+.transport-info strong {
+    color: #8B7335;
+}
+
+.bus-number {
+    color: #3cc344;
+    font-weight: 600;
 }
 
 /* ===========================
@@ -268,14 +278,14 @@ body {
 .story-title {
     font-family: 'Great Vibes', cursive;
     font-size: 36px;
-    color: #c9a97a;
+    color: #5a4a42;
     text-align: center;
     margin-bottom: 10px;
 }
 
 .story-subtitle {
     font-size: 14px;
-    color: #888;
+    color: #666;
     line-height: 1.8;
 }
 
@@ -283,17 +293,23 @@ body {
    공유 버튼
 =========================== */
 .share-btn {
-    display: block;
-    margin: 30px;
-    margin-bottom: 50px;
+    margin: 30px 30px 60px;
     padding: 16px;
-    width: calc(100% - 60px);
     background: #8b7355;
     color: white;
-    border-radius: 30px;
-    text-align: center;
     border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    font-family: 'Noto Serif KR', serif;
     cursor: pointer;
+    width: calc(100% - 60px);
+    transition: all 0.3s;
+    display: block;
+    text-align: center;
+    appearance: none;
+}
+.share-btn:hover {
+    background: #6d5a44;
 }
 
 /* ===========================
