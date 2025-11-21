@@ -82,25 +82,25 @@ async function loadComments() {
         const rows = text.split("\n").slice(1); // 첫 줄 헤더 제거
         list.innerHTML = "";
 
-        rows.reverse().forEach(row => {
-            const cols = row.split(",");
+         rows.reverse().forEach(row => {
+             const cols = row.split(",");
 
-            const name = cols[0]?.replace(/"/g, "").trim();
-            const message = cols[1]?.replace(/"/g, "").trim();
-            const date = cols[2]?.replace(/"/g, "").trim();
+             const name = cols[0]?.replace(/"/g, "").trim();
+             const message = cols[1]?.replace(/"/g, "").trim();
+             const date = cols[2]?.replace(/"/g, "").trim();
 
-            if (!name || !message) return;
+             if (!name || !message) return;
 
-            const item = document.createElement("div");
-            item.className = "comment-item";
-            item.innerHTML = `
-                <div class="comment-text">${message}</div>
-                <div class="comment-author">${name}</div>
-                <div class="comment-date">${date}</div>
-            `;
+             const item = document.createElement("div");
+             item.className = "comment-item";
+             item.innerHTML = `
+                 <div class="comment-text">${message}</div>
+                 <div class="comment-author">${name}</div>
+                 <div class="comment-date">${date}</div>
+             `;
 
-            list.appendChild(item);
-        });
+    list.appendChild(item);
+});
 
     } catch (err) {
         list.innerHTML = "<div>댓글을 불러오지 못했습니다.</div>";
