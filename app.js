@@ -94,9 +94,9 @@ async function loadComments() {
             const item = document.createElement("div");
             item.className = "comment-item";
             item.innerHTML = `
+                <div class="comment-text">${message}</div>
                 <div class="comment-author">${name}</div>
                 <div class="comment-date">${date}</div>
-                <div class="comment-text">${message}</div>
             `;
 
             list.appendChild(item);
