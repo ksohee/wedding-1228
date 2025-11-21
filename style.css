@@ -265,7 +265,7 @@ body {
    STORY BANNER
 =========================== */
 .story-banner {
-    margin: 40px 30px 60px; /* 아래 간격 +20px 증가 */
+    margin: 40px 30px 80px;
     padding: 60px 20px;
     background-size: cover;
     background-position: center;
@@ -330,7 +330,7 @@ body {
 =========================== */
 
 .content-header {
-    padding: 15px 20px;
+    padding: 12px 20px;
     background: #faf9f8;
     position: sticky;
     top: 0;
