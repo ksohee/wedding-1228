@@ -486,3 +486,17 @@ body {
 .toast.show {
     opacity: 1;
 }
+
+/* Story page 링크 스타일 — 밑줄 유지, 색상 유지 */
+.story-text a {
+    color: inherit;             /* 부모 텍스트 색상 그대로 사용 */
+    text-decoration: underline; /* 밑줄 유지 */
+}
+
+.story-text a:visited {
+    color: inherit;             /* 방문한 링크도 동일 색상 */
+}
+
+.story-text a:hover {
+    opacity: 0.8;               /* 살짝만 반응 효과 */
+}
