@@ -70,7 +70,7 @@ async function submitComment() {
 =========================== */
 async function loadComments() {
     const list = document.getElementById("commentsList");
-    list.innerHTML = "<div>메시지 불러오는 중...</div>";
+    list.innerHTML = "<div>불러오는 중...</div>";
 
     const csvURL =
         "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_0KRu1hLH9BpnUhv45PxDhqdvkmM0O9umqUNwuiK_gsLJvPXiGvpJ1iBLhRZgKi2_WSsMdy35caKf/pub?output=csv";
@@ -79,15 +79,15 @@ async function loadComments() {
         const res = await fetch(csvURL);
         const text = await res.text();
 
-        const rows = text.split("\n").slice(1); 
+        const rows = text.split("\n").slice(1);
         list.innerHTML = "";
 
         rows.reverse().forEach(row => {
             const cols = row.split(",");
 
-            const name = cols[0]?.replace(/"/g, "").trim();
-            const message = cols[1]?.replace(/"/g, "").trim();
-            const date = cols[2]?.replace(/"/g, "").trim();
+            const date = cols[0]?.replace(/"/g, "").trim();
+            const name = cols[1]?.replace(/"/g, "").trim();
+            const message = cols[2]?.replace(/"/g, "").trim();
 
             if (!name || !message) return;
 
