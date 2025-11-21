@@ -22,28 +22,18 @@ function shareInvitation() {
 }
 
 /* ===========================
-   토스트
+   토스트 메시지
 =========================== */
 function showToast(text) {
     const toast = document.getElementById("toast");
     toast.textContent = text;
     toast.classList.add("show");
-
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, 2000);
+    setTimeout(() => toast.classList.remove("show"), 2000);
 }
 
 /* ===========================
-   GitHub Issues 기반 댓글 시스템
+   댓글 작성 (Google Form)
 =========================== */
-
-const GITHUB_TOKEN = "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";
-const REPO_OWNER = "ksohee";
-const REPO_NAME = "wedding-1228";
-
-/* --- 댓글 작성 --- */
-
 async function submitComment() {
     const name = document.getElementById("commentName").value.trim();
     const text = document.getElementById("commentText").value.trim();
@@ -53,13 +43,13 @@ async function submitComment() {
         return;
     }
 
-    /* Google Form 제출 URL */
-    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfhTSJI843vwhL2vZXLhhrW-D8WKcdXEiudq2AXKQAxOGQkFg/formResponse";
+    const formURL =
+        "https://docs.google.com/forms/d/e/1FAIpQLSfhTSJI843vwhL2vZXLhhrW-D8WKcdXEiudq2AXKQAxOGQkFg/formResponse";
 
-    /* entry ID/
+    /* entry ID */
     const formData = new FormData();
-    formData.append("entry.1759162116", name);   // 이름 entry
-    formData.append("entry.2089542975", text);   // 메시지 entry
+    formData.append("entry.1759162116", name);  // 이름
+    formData.append("entry.2089542975", text);  // 메시지
 
     await fetch(formURL, {
         method: "POST",
@@ -76,14 +66,12 @@ async function submitComment() {
 }
 
 /* ===========================
-   댓글 – Google Sheet 불러오기
+   댓글 불러오기 (Google Sheet → CSV)
 =========================== */
-
 async function loadComments() {
     const list = document.getElementById("commentsList");
     list.innerHTML = "<div>불러오는 중...</div>";
 
-    /* CSV URL (시트 → 웹에 게시) */
     const csvURL =
         "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_0KRu1hLH9BpnUhv45PxDhqdvkmM0O9umqUNwuiK_gsLJvPXiGvpJ1iBLhRZgKi2_WSsMdy35caKf/pub?output=csv";
 
@@ -91,10 +79,9 @@ async function loadComments() {
         const res = await fetch(csvURL);
         const text = await res.text();
 
-        const rows = text.split("\n").slice(1); // 첫 줄은 헤더라 제거
+        const rows = text.split("\n").slice(1); // 첫 줄 헤더 제거
         list.innerHTML = "";
 
-        // 최신 메시지가 위로 오도록 reverse()
         rows.reverse().forEach(row => {
             const cols = row.split(",");
 
