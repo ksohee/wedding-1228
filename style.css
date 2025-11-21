@@ -1,4 +1,16 @@
 /* ===========================
+   iOS 자동 링크 비활성화
+=========================== */
+a[x-apple-data-detectors],
+a[x-apple-data-detectors] *,
+a[href^="tel"],
+a[href^="mailto"] {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+}
+
+/* ===========================
    기본 스타일
 =========================== */
 * {
@@ -253,7 +265,7 @@ body {
    STORY BANNER
 =========================== */
 .story-banner {
-    margin: 40px 30px;
+    margin: 40px 30px 60px; /* 아래 간격 +20px 증가 */
     padding: 60px 20px;
     background-size: cover;
     background-position: center;
@@ -318,7 +330,7 @@ body {
 =========================== */
 
 .content-header {
-    padding: 25px 20px;
+    padding: 15px 20px;
     background: #faf9f8;
     position: sticky;
     top: 0;
@@ -424,8 +436,9 @@ body {
 
 .comment-author {
     font-size: 14px;
+    font-weight: 400;
     color: #5a4a42;
-    font-weight: 600;
+    margin-bottom: 4px;
 }
 
 .comment-date {
@@ -434,9 +447,11 @@ body {
 }
 
 .comment-text {
-    font-size: 14px;
-    color: #666;
-    margin: 10px 0;
+    font-size: 15px;
+    font-weight: 400;
+    color: #444;
+    margin-bottom: 8px;
+    line-height: 1.6;
 }
 
 .toast {
