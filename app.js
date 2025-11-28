@@ -84,15 +84,40 @@ async function loadComments() {
         const res = await fetch(csvURL);
         const text = await res.text();
 
-        const rows = text.split("\n").slice(1); // 헤더 제거
+        // Google CSV → “진짜” CSV parser
+        const rows = text
+            .trim()
+            .split(/\r?\n/)
+            .slice(1)  // header 제거
+            .map(line => {
+                const cols = [];
+                let current = "";
+                let insideQuotes = false;
+
+                for (let char of line) {
+                    if (char === '"') {
+                        insideQuotes = !insideQuotes;
+                    } else if (char === ',' && !insideQuotes) {
+                        cols.push(current.trim());
+                        current = "";
+                    } else {
+                        current += char;
+                    }
+                }
+                cols.push(current.trim());
+                return cols;
+            });
+
+        // 최신순
+        rows.reverse();
+
         list.innerHTML = "";
 
-        rows.reverse().forEach(row => {
-            const cols = row.split(",");
-
-            const date = cols[0]?.replace(/"/g, "").trim();
-            const name = cols[1]?.replace(/"/g, "").trim();
-            const message = cols[2]?.replace(/"/g, "").trim();
+        rows.forEach(cols => {
+            // CSV 컬럼: timestamp, name, message
+            const date = cols[0] || "";
+            const name = cols[1] || "";
+            const message = cols[2] || "";
 
             if (!name || !message) return;
 
@@ -103,12 +128,10 @@ async function loadComments() {
                 <div class="comment-author">${name}</div>
                 <div class="comment-date">${date}</div>
             `;
-
             list.appendChild(item);
         });
 
     } catch (err) {
-        console.error(err);
         list.innerHTML = "<div>축하메시지를 불러오지 못했어요😢</div>";
     }
 }
