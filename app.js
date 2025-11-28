@@ -34,24 +34,56 @@ function showToast(text) {
 /* ===========================
    댓글 작성 (Google Form)
 =========================== */
+// async function submitComment() {
+//     const name = document.getElementById("commentName").value.trim();
+//     const text = document.getElementById("commentText").value.trim();
+
+//     if (!name || !text) {
+//         showToast("이름과 내용을 입력해주세요");
+//         return;
+//     }
+   
+//    text = text.replace(/\r?\n|\r/g, " ");
+
+//     const formURL =
+//         "https://docs.google.com/forms/d/e/1FAIpQLSfhTSJI843vwhL2vZXLhhrW-D8WKcdXEiudq2AXKQAxOGQkFg/formResponse";
+
+//     /* entry ID */
+//     const formData = new FormData();
+//     formData.append("entry.1759162116", name);  // 이름
+//     formData.append("entry.2089542975", text);  // 메시지
+
+//     await fetch(formURL, {
+//         method: "POST",
+//         mode: "no-cors",
+//         body: formData
+//     });
+
+//     showToast("축하해주셔서 감사합니다!");
+
+//     document.getElementById("commentName").value = "";
+//     document.getElementById("commentText").value = "";
+
+//     loadComments();
+// }
+
 async function submitComment() {
     const name = document.getElementById("commentName").value.trim();
-    const text = document.getElementById("commentText").value.trim();
+    let text = document.getElementById("commentText").value.trim();
 
     if (!name || !text) {
         showToast("이름과 내용을 입력해주세요");
         return;
     }
-   
-   text = text.replace(/\r?\n|\r/g, " ");
 
-    const formURL =
-        "https://docs.google.com/forms/d/e/1FAIpQLSfhTSJI843vwhL2vZXLhhrW-D8WKcdXEiudq2AXKQAxOGQkFg/formResponse";
+    text = text.replace(/\r?\n|\r/g, " ");
 
-    /* entry ID */
+    /* Google Form 제출 */
+    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfhTSJI843vwhL2vZXLhhrW-D8WKcdXEiudq2AXKQAxOGQkFg/formResponse";
+
     const formData = new FormData();
-    formData.append("entry.1759162116", name);  // 이름
-    formData.append("entry.2089542975", text);  // 메시지
+    formData.append("entry.1759162116", name);
+    formData.append("entry.2089542975", text);
 
     await fetch(formURL, {
         method: "POST",
