@@ -42,6 +42,8 @@ async function submitComment() {
         showToast("이름과 내용을 입력해주세요");
         return;
     }
+   
+   text = text.replace(/\r?\n|\r/g, " ");
 
     const formURL =
         "https://docs.google.com/forms/d/e/1FAIpQLSfhTSJI843vwhL2vZXLhhrW-D8WKcdXEiudq2AXKQAxOGQkFg/formResponse";
